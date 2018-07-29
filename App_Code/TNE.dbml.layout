@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="TNE">
+  <DataContextMoniker Name="/TNEDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c16d3d71-e12e-4391-8cf4-5dee88cd71d1" absoluteBounds="0.5, 0.5, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/TNEDataContext/tblTimeExpensesSummary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="48e96944-7203-4ff1-a7ce-2eff6b0a743b" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5cfe18cf-4dbd-4354-98c2-f213d391afdc" absoluteBounds="3.125, 0.5, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/TNEDataContext/tblTimeExpensesSummary_history" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba553838-ac38-408e-9db7-6536c610906d" absoluteBounds="3.14, 0.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 2.15465413411458); (3.125 : 2.15465413411458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TNEDataContext/tblTimeExpensesSummary/tblTimeExpensesSummary_tblTimeExpensesSummary_history" />
+      <nodes>
+        <classShapeMoniker Id="c16d3d71-e12e-4391-8cf4-5dee88cd71d1" />
+        <classShapeMoniker Id="5cfe18cf-4dbd-4354-98c2-f213d391afdc" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

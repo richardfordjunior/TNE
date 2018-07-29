@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_13029_randt" Class="s03_DB_13029_randtDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=s03.winhost.com;Initial Catalog=DB_13029_randt;Persist Security Info=True;User ID=DB_13029_randt_user" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_13029_randtConnectionString1" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.getCurrentDates" Method="getCurrentDates">
+    <Parameter Name="today" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="future" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="getCurrentDatesResult">
+      <Column Name="dates" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Day" Type="System.String" DbType="NVarChar(124)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetAllDBTables" Method="GetAllDBTables">
+    <ElementType Name="GetAllDBTablesResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

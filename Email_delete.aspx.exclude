@@ -1,0 +1,86 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true"  CodeFile="Email_delete.aspx.cs" Inherits="Email" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Email Time Sheet</title>
+    <style type="text/css">
+        .style1
+        {
+            font-size: x-large;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form1" runat="server" style="width:50px;height:50px">
+    <div style="height: 257px; width: 443px;">
+        <br />
+        <br />
+        <asp:Panel ID="pnlEmailAddress" runat="server" Height="269px" Width="431px">
+            <span class="style1">Email Time Sheet for Week Ending 
+                <asp:DropDownList ID="ddlWeekEndDate" runat="server">
+                </asp:DropDownList>
+            <br />
+            <br />
+            </span>Select Email Address
+            <asp:DropDownList ID="ddlEmalList" runat="server">
+            </asp:DropDownList>
+            <br />
+             or<br /> 
+             <a href='javascript:OnClientClick =Hide();' >Add New Email Address</a> 
+             <div id="NewEmailAddress" style="display:none" >
+                  <br />
+                First Name <asp:TextBox ID="txtFname" runat="server"></asp:TextBox>
+                  <br />
+                Last Name <asp:TextBox ID="txtLname" runat="server"></asp:TextBox>
+                  <br />
+                Email Address<asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                  <br />
+          <label id="lblProcess"style="display:none; color:Red">Adding.......</label>
+                 <asp:Button ID="btnAdd" runat="server" Text="Add New Email Address"
+                 onclick="btnAdd_Click"  OnClientClick="HideProcess();"
+                 />
+            </div>
+            
+            <asp:HiddenField ID="hfUserId" runat="server" />
+            <br />
+            <asp:Button ID="btnSendEmail" runat="server" Text="Send Email" 
+                onclick="btnSendEmail_Click" />
+            <br />
+            <br />
+            <br />
+        </asp:Panel>
+    </div>
+    </form>
+    <script language="javascript" type="text/javascript">
+        function Hide() {  
+        var divstyle = new String();
+        divstyle = document.getElementById("NewEmailAddress").style.display;
+        if(divstyle.toLowerCase()=="block" || divstyle == "")
+        {
+            document.getElementById("NewEmailAddress").style.display = "none";
+            document.getElementById("btnSendEmail").style.display = "block";
+        }
+        else
+        {
+            document.getElementById("NewEmailAddress").style.display = "block";
+            document.getElementById("btnSendEmail").style.display = "none";
+        }
+    }
+    function HideProcess() {
+        var divstyle = new String();
+        divstyle = document.getElementById("lblProcess").style.display;
+        if (divstyle.toLowerCase() == "block" || divstyle == "") {
+            document.getElementById("lblProcess").style.display = "none";
+        }
+        else {
+            document.getElementById("lblProcess").style.display = "block";     
+        }
+    }
+
+   
+    </script>
+</body>
+</html>

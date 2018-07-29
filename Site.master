@@ -1,0 +1,182 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster"    %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head id= "Head1" runat="server">
+<script language="javascript" type="text/javascript">
+    function noBack() { window.history.forward(); }
+
+    function GetMenu(ctl) {
+        if (ctl != null) {
+            window.open(ctl, "_self")
+        }
+    }
+    
+</script>
+<script type="text/javascript">
+    
+   
+
+function DisplayTime(){
+if (!document.all && !document.getElementById)
+return
+timeElement=document.getElementById? document.getElementById("curTime"): document.all.tick2
+var CurrentDate=new Date()
+var hours=CurrentDate.getHours()
+var minutes=CurrentDate.getMinutes()
+var seconds=CurrentDate.getSeconds()
+var DayNight="PM"
+if (hours<12) DayNight="AM";
+if (hours>12) hours=hours-12;
+if (hours==0) hours=12;
+if (minutes<=9) minutes="0"+minutes;
+if (seconds<=9) seconds="0"+seconds;
+var currentTime=hours+":"+minutes+":"+seconds+" "+DayNight;
+timeElement.innerHTML="<font style='font-family:verdana, arial,tahoma;font-size:12px;color:#FFFFFF;'>"+currentTime+"</b>"
+setTimeout("DisplayTime()", 1000)
+
+}
+window.onload = DisplayTime
+
+
+
+</script>
+    <title>TimeKeeperPRO&#xA9 </title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+   
+      <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 190px;
+            height: 153px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <form id="Form1" runat="server" > 
+   
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    TimeKeeper PRO&#xA9
+                    
+  
+                </h1>  
+ 
+
+
+ 
+            </div>
+            <div class="loginDisplay">
+                
+              
+
+
+              
+         
+              
+                <ContentTemplate>
+
+<asp:Label ID="lblcurrenttime" runat="server" Text=""></asp:Label>
+</ContentTemplate>
+                    
+               
+               
+
+
+               
+         <%--       <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                          
+                    <AnonymousTemplate>
+
+               
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]<br /> 
+                        &nbsp;
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>--%>
+                
+              
+                
+                <!--<img class="style1" src="Images/btbimages.jpg" width="100" /></div>-->
+                <img class="style1" src="Images/favicon.ico" width="100" /></div>
+           
+
+
+            <asp:Label ID="lblDateTime" runat="server" Text="" ForeColor="White"></asp:Label>
+            <asp:Label ID="lblUTCTime" runat="server" Text="" ForeColor="White"></asp:Label>&nbsp;
+            <span id=curTime>  </span>
+            <br /><asp:Label ID="lblUser" runat="server" ForeColor="White" Font-Bold="True"></asp:Label>
+             <br />
+            <asp:HyperLink ID="hlEmailId" runat="server" ForeColor="White" 
+      Target="_blank" ></asp:HyperLink>
+          <!-- Place this tag where you want the +1 button to render. -->
+            <div class="g-plusone" data-annotation="inline" data-width="300"></div>
+            <br /><asp:Label ID="lblVersion" runat="server" Text="" ForeColor="White"></asp:Label>
+            <asp:HyperLink ID="hlnkReleaseNotes" runat="server" Font-Size="Smaller" 
+                ForeColor="White" NavigateUrl="~/Documents/TimeKeeper Pro Release Notes.docx">Release Notes</asp:HyperLink>
+            <br />
+            <div style="text-align:right"> 
+          
+            <asp:LinkButton ID="LinkButton1" runat="server" ForeColor="White" 
+                     onclick="LinkButton1_Click">Log Out</asp:LinkButton>
+           
+            </div>
+             <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server"  CssClass="menu"  
+                     EnableViewState="true" IncludeStyleBlock="false" Orientation="Horizontal" 
+                     OnMenuItemClick ="NavigationMenu_MenuItemClick"
+    
+                     OnMenuItemDataBound = "NavigationMenu_MenuItemDataBound">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="" Text="About"  ToolTip="Learn more."/>
+                        <asp:MenuItem NavigateUrl="" Text="Time Entry"  ToolTip="Enter time for each day." />
+                        <asp:MenuItem NavigateUrl="" Text="Time Entry History" ToolTip="Retrieve,Email,Export records." />
+                    </Items>
+                </asp:Menu>          
+                
+                <br />
+</div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+           
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">   
+        <!--Copyright&#xA9;2010 RANDT Consulting, LLC. All rights reserved. Bob the Builder&#xA9 appears courtesy of HiT Entertainment. All rights reserved. -->
+         Copyright&#xA9;2010 RANDT Consulting, LLC. All rights reserved. 
+        <br />
+        <asp:Label ID="lblCityState" runat="server"></asp:Label>
+        <br />
+         </div>
+        <asp:HiddenField ID="hfMenuItem" runat="server"  />
+    </form>
+    
+</body>
+<!-- Place this tag after the last +1 button tag. -->
+<script type="text/javascript">
+    (function () {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+</script>
+
+</html>

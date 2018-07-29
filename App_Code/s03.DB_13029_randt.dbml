@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_13029_randt" Class="s03_DB_13029_randtDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=s03.winhost.com;Initial Catalog=DB_13029_randt;Persist Security Info=True;User ID=DB_13029_randt_user" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_13029_randtConnectionString1" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.GetAllDBTables" Method="GetAllDBTables">
+    <ElementType Name="GetAllDBTablesResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getCurrentDates" Method="getCurrentDates">
+    <Parameter Name="today" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="future" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="getCurrentDatesResult">
+      <Column Name="dates" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Day" Type="System.String" DbType="NVarChar(124)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_BackupOnInsert" Method="sp_BackupOnInsert" />
+  <Function Name="dbo.sp_CheckIfDuplicates" Method="sp_CheckIfDuplicates">
+    <Parameter Name="pk" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cdate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="loc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="wkDesc" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="wkHrs" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="expenses" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="comment" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="lu" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_CheckIfDuplicatesResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_FormatMap" Method="sp_FormatMap">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="newAddress" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_GetName" Method="sp_GetName">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="sp_GetNameResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone_num" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="sec_phone_num" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="e_mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="last_updated" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="newAddress" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Insert" Method="sp_Insert">
+    <Parameter Name="userId" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_InsertNewRecord" Method="sp_InsertNewRecord">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Location" Parameter="location" Type="System.String" DbType="NVarChar(1)" />
+    <Parameter Name="WorkDescription" Parameter="workDescription" Type="System.String" DbType="NVarChar(1)" />
+    <Parameter Name="WorkHrs" Parameter="workHrs" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="Expenses" Parameter="expenses" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Comments" Parameter="comments" Type="System.String" DbType="NVarChar(1)" />
+    <Parameter Name="CreatedDate" Parameter="createdDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="LastUpdated" Parameter="lastUpdated" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="PaymentReceived" Parameter="paymentReceived" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NewId" Parameter="newId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="pictureUrl" Type="System.String" DbType="NVarChar(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_PopulateName" Method="sp_PopulateName">
+    <ElementType Name="sp_PopulateNameResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
